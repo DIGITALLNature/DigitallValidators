@@ -24,10 +24,15 @@
 
   <ItemGroup>
     <PackageReference Include="dgt.apower" Version="1.1.0-beta.2" />
-    <PackageReference Include="libphonenumber-csharp" Version="8.13.42" />
+    <PackageReference Include="dgt.registration" Version="1.0.1" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.43" />
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.*" PrivateAssets="All" />
     <PackageReference Include="Microsoft.PowerApps.MSBuild.Plugin" Version="1.33.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dgt.solutions.Model\dgt.solutions.Model.csproj" />
   </ItemGroup>
 
   <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets')" />

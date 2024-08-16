@@ -1,0 +1,12 @@
+﻿{
+  "Entities": [
+  ],
+  "Actions": [],
+  "CustomAPIs": ["dgt_ValidatePhoneNumber"],
+  "AdditionalSdkMessages": [],
+  "SuppressTypeScript": true,
+  "SuppressMetaData": true,
+  "SuppressNullableSupport": true,
+  "EditableReadOnlyProperties": true,
+  "UseBaseLanguage": true
+}

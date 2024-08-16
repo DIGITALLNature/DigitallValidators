@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Globalization;
+using dgt.registration;
 using Digitall.APower;
+using Digitall.APower.Model;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Extensions;
 using PhoneNumbers;
 
 namespace dgt.solutions.Validators.PhoneNumber
 {
+  [CustomApiRegistration(SdkMessageNames.DgtValidatePhoneNumber)]
   public class ValidatePhoneNumber : IPlugin
   {
     public void Execute(IServiceProvider serviceProvider)
@@ -24,9 +27,10 @@ namespace dgt.solutions.Validators.PhoneNumber
       }
       catch (NumberParseException e)
       {
-        executionContext.SetOutputParameter("IsValid", false);
-        executionContext.SetOutputParameter("ErrorCode", e.ErrorType.ToString());
-        executionContext.SetOutputParameter("Message", e.Message);
+        executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.IsValid, false);
+        executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.ErrorCode,
+          e.ErrorType.ToString());
+        executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.Message, e.Message);
         return;
       }
 
@@ -38,42 +42,46 @@ namespace dgt.solutions.Validators.PhoneNumber
 
       // format
       var formattedPhoneNumber = phoneNumberUtil.Format(phoneNumber, inputParameters.Format);
-      executionContext.SetOutputParameter("FormattedPhoneNumber", formattedPhoneNumber);
+      executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.FormattedPhoneNumber,
+        formattedPhoneNumber);
     }
 
     private static bool ValidateWithRegion(PhoneNumberUtil phoneNumberUtil, PhoneNumbers.PhoneNumber phoneNumber,
       IPluginExecutionContext executionContext, string region)
     {
       var isValid = phoneNumberUtil.IsValidNumberForRegion(phoneNumber, region);
-      executionContext.SetOutputParameter("IsValid", isValid);
-      if (!isValid)
-      {
-        executionContext.SetOutputParameter("ErrorCode", PhoneNumberErrorCodes.RegionMismatch);
-        executionContext.SetOutputParameter("Message", $"Phone number is not valid for region '{region}'.");
-      }
+      executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.IsValid, isValid);
+      if (isValid) return true;
 
-      return isValid;
+      executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.ErrorCode,
+        PhoneNumberErrorCodes.RegionMismatch);
+      executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.Message,
+        $"Phone number is not valid for region '{region}'.");
+
+      return false;
     }
 
     private static bool ValidateWithoutRegion(PhoneNumberUtil phoneNumberUtil, PhoneNumbers.PhoneNumber phoneNumber,
       IPluginExecutionContext executionContext)
     {
       var isValid = phoneNumberUtil.IsValidNumber(phoneNumber);
-      executionContext.SetOutputParameter("IsValid", isValid);
-      if (!isValid)
-      {
-        executionContext.SetOutputParameter("ErrorCode", PhoneNumberErrorCodes.InvalidPhoneNumber);
-        executionContext.SetOutputParameter("Message", "Phone number is not valid.");
-      }
+      executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.IsValid, isValid);
+      if (isValid) return true;
 
-      return isValid;
+      executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.ErrorCode,
+        PhoneNumberErrorCodes.InvalidPhoneNumber);
+      executionContext.SetOutputParameter(DgtValidatePhoneNumberResponse.OutParameters.Message,
+        "Phone number is not valid.");
+
+      return false;
     }
 
     private static PhoneNumberValidationParameters ParseInputParameters(IPluginExecutionContext executionContext)
     {
-      executionContext.GetInputParameter("PhoneNumber", out string phoneNumber);
-      executionContext.GetInputParameter("Region", out string region);
-      executionContext.GetInputParameter("Format", out string format);
+      executionContext.GetInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber,
+        out string phoneNumber);
+      executionContext.GetInputParameter(DgtValidatePhoneNumberRequest.InParameters.Region, out string region);
+      executionContext.GetInputParameter(DgtValidatePhoneNumberRequest.InParameters.Format, out string format);
 
       var regionCode = ParseRegionCode(region);
       var phoneNumberFormat = ParsePhoneNumberFormat(format);
