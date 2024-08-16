@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="FormattedPhoneNumber">
+  <description default="Formatted phone number based on the provided format (if valid)">
+    <label description="Formatted phone number based on the provided format (if valid)" languagecode="1033" />
+  </description>
+  <displayname default="Formatted Phone Number">
+    <label description="Formatted Phone Number" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>FormattedPhoneNumber</name>
+  <type>10</type>
+</customapiresponseproperty>

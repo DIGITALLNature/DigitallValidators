@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="Region">
+  <description default="Two letter ISO 3166 country code">
+    <label description="Two letter ISO 3166 country code" languagecode="1033" />
+  </description>
+  <displayname default="Region">
+    <label description="Region" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>Region</name>
+  <type>10</type>
+</customapirequestparameter>

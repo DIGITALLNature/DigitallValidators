@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="Format">
+  <description default="Possible phone number formats: E164 (default if none if provided), INTERNATIONAL, NATIONAL, RFC3966">
+    <label description="Possible phone number formats: E164 (default if none if provided), INTERNATIONAL, NATIONAL, RFC3966" languagecode="1033" />
+  </description>
+  <displayname default="Format">
+    <label description="Format" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>1</isoptional>
+  <name>Format</name>
+  <type>10</type>
+</customapirequestparameter>

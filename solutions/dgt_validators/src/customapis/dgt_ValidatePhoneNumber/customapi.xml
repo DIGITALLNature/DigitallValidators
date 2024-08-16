@@ -1,0 +1,18 @@
+<customapi uniquename="dgt_ValidatePhoneNumber">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Validates and formats phone number based on given region code">
+    <label description="Validates and formats phone number based on given region code" languagecode="1033" />
+  </description>
+  <displayname default="Validate Phone Number">
+    <label description="Validate Phone Number" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>dgt_ValidatePhoneNumber</name>
+  <plugintypeid>
+    <plugintypeexportkey>27B0F1FD42190F86BBDC37BDD496710F6E812648F0393224D524996713691ACA</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>
