@@ -1,0 +1,5 @@
+﻿<Solution>
+  <Project Path="Digitall.Model\Digitall.Model.csproj" Type="Classic C#" />
+  <Project Path="Digitall.Solutions.Validators.Test\Digitall.Solutions.Validators.Test.csproj" Type="Classic C#" />
+  <Project Path="Digitall.Solutions.Validators\Digitall.Solutions.Validators.csproj" Type="Classic C#" />
+</Solution>
