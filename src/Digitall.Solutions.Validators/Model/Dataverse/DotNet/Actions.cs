@@ -20,9 +20,27 @@ namespace Digitall.Solutions.Validators.Model.Dataverse
 		#region InParameters
 		public struct InParameters
 		{
+			public const string AllowedCountries = "AllowedCountries";
 			public const string Iban = "Iban";
+			public const string RejectedCountries = "RejectedCountries";
 		}
 		#endregion
+
+		public string[] AllowedCountries
+		{
+			get
+			{
+				if(base.Parameters.Contains("AllowedCountries"))
+				{
+					return (string[])base.Parameters["AllowedCountries"];
+				}
+				return default(string[]);
+			}
+			set
+			{
+				base.Parameters["AllowedCountries"] = value;
+			}
+		}
 
 		public string Iban
 		{
@@ -37,6 +55,22 @@ namespace Digitall.Solutions.Validators.Model.Dataverse
 			set
 			{
 				base.Parameters["Iban"] = value;
+			}
+		}
+
+		public string[] RejectedCountries
+		{
+			get
+			{
+				if(base.Parameters.Contains("RejectedCountries"))
+				{
+					return (string[])base.Parameters["RejectedCountries"];
+				}
+				return default(string[]);
+			}
+			set
+			{
+				base.Parameters["RejectedCountries"] = value;
 			}
 		}
 

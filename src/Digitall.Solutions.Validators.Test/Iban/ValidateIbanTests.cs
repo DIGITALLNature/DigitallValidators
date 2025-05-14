@@ -139,7 +139,7 @@ namespace Digitall.Solutions.Validators.Test.Iban
         nameof(IllegalCountryCodeCharactersResult));
       executionContext.OutputParameters.Should().ContainKey(DgtValidateIbanResponse.OutParameters.Message);
     }
-    
+
     [TestMethod]
     public void ShouldReturnErrorWhenInvalidCharactersAreIncluded()
     {
@@ -158,6 +158,52 @@ namespace Digitall.Solutions.Validators.Test.Iban
       executionContext.OutputParameters.Should().Contain(DgtValidateIbanResponse.OutParameters.IsValid, false);
       executionContext.OutputParameters.Should().Contain(DgtValidateIbanResponse.OutParameters.ErrorCode,
         nameof(IllegalCharactersResult));
+      executionContext.OutputParameters.Should().ContainKey(DgtValidateIbanResponse.OutParameters.Message);
+    }
+
+    [TestMethod]
+    public void ShouldReturnErrorWhenCountryIsNotAllowed()
+    {
+      // Arrange
+      var serviceProvider = new PluginExecutionContextBuilder()
+        .WithInputParameter(DgtValidateIbanRequest.InParameters.Iban, "DE75512108001245126199")
+        .WithInputParameter(DgtValidateIbanRequest.InParameters.AllowedCountries, new[] { "FR" })
+        .BuildServiceProvider();
+
+      var sut = new ValidateIban();
+
+      // Act
+      sut.Execute(serviceProvider);
+
+      // Assert
+      var executionContext = serviceProvider.GetExecutionContext();
+
+      executionContext.OutputParameters.Should().Contain(DgtValidateIbanResponse.OutParameters.IsValid, false);
+      executionContext.OutputParameters.Should().Contain(DgtValidateIbanResponse.OutParameters.ErrorCode,
+        nameof(CountryNotAcceptedResult));
+      executionContext.OutputParameters.Should().ContainKey(DgtValidateIbanResponse.OutParameters.Message);
+    }
+    
+    [TestMethod]
+    public void ShouldReturnErrorWhenCountryIsRejected()
+    {
+      // Arrange
+      var serviceProvider = new PluginExecutionContextBuilder()
+        .WithInputParameter(DgtValidateIbanRequest.InParameters.Iban, "DE75512108001245126199")
+        .WithInputParameter(DgtValidateIbanRequest.InParameters.RejectedCountries, new[] { "DE" })
+        .BuildServiceProvider();
+
+      var sut = new ValidateIban();
+
+      // Act
+      sut.Execute(serviceProvider);
+
+      // Assert
+      var executionContext = serviceProvider.GetExecutionContext();
+
+      executionContext.OutputParameters.Should().Contain(DgtValidateIbanResponse.OutParameters.IsValid, false);
+      executionContext.OutputParameters.Should().Contain(DgtValidateIbanResponse.OutParameters.ErrorCode,
+        nameof(CountryNotAcceptedResult));
       executionContext.OutputParameters.Should().ContainKey(DgtValidateIbanResponse.OutParameters.Message);
     }
   }
