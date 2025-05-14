@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="Iban">
+  <description default="the IBAN to validate">
+    <label description="the IBAN to validate" languagecode="1033" />
+  </description>
+  <displayname default="IBAN">
+    <label description="IBAN" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>Iban</name>
+  <type>10</type>
+</customapirequestparameter>

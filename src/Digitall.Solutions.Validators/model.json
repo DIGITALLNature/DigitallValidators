@@ -1,0 +1,16 @@
+﻿{
+  "Entities": [
+  ],
+  "Actions": [],
+  "CustomAPIs": [
+    "dgt_ValidatePhoneNumber",
+    "dgt_ValidateIban"
+  ],
+  "AdditionalSdkMessages": [],
+  "SuppressTypeScript": true,
+  "SuppressMetaData": true,
+  "SuppressNullableSupport": true,
+  "EditableReadOnlyProperties": true,
+  "UseBaseLanguage": true,
+  "NameSpace": "Digitall.Solutions.Validators.Model.Dataverse"
+}

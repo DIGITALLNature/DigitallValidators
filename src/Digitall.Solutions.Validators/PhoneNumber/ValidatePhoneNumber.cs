@@ -2,7 +2,7 @@
 using System.Globalization;
 using dgt.registration;
 using Digitall.APower;
-using Digitall.APower.Model;
+using Digitall.Solutions.Validators.Model.Dataverse;
 using Microsoft.Xrm.Sdk;
 using PhoneNumbers;
 

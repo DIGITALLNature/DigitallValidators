@@ -3,4 +3,4 @@ if ($LASTEXITCODE -ne 0) {
     return;
 }
 
-dgtp codegeneration ./src/Digitall.Model --folder Dataverse --config ./src/Digitall.Model/model.json
+dgtp codegeneration ./src/Digitall.Solutions.Validators --folder Model/Dataverse --config ./src/Digitall.Solutions.Validators/model.json

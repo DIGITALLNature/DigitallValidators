@@ -1,4 +1,4 @@
-dotnet build ./src/Digitall.Solutions.Validators.sln --configuration Release
+dotnet build ./src/Digitall.Solutions.Validators.slnx --configuration Release
 
 dgtp profile select DigitallValidators
 if ($LASTEXITCODE -ne 0) {

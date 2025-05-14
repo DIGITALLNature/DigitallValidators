@@ -1,0 +1,18 @@
+<customapi uniquename="dgt_ValidateIban">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Validates and formats IBAN">
+    <label description="Validates and formats IBAN" languagecode="1033" />
+  </description>
+  <displayname default="Validate IBAN">
+    <label description="Validate IBAN" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>dgt_ValidateIban</name>
+  <plugintypeid>
+    <plugintypeexportkey>813C6D378C577A1F8922D8DA80EE371EB2B80F373AE081F427282B5BA4623CA1</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

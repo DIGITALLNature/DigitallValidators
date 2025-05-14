@@ -1,6 +1,6 @@
 using System;
 using Digitall.APower;
-using Digitall.APower.Model;
+using Digitall.Solutions.Validators.Model.Dataverse;
 using Digitall.Solutions.Validators.PhoneNumber;
 using Digitall.Testing;
 using Digitall.Testing.Extensions;
@@ -20,7 +20,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
       var serviceProvider = new PluginExecutionContextBuilder()
         .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber, "017728371992")
         .BuildServiceProvider();
-      
+
       var sut = new ValidatePhoneNumber();
 
       // Act
@@ -28,7 +28,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
 
       // Assert
       var executionContext = serviceProvider.GetExecutionContext();
-      
+
       executionContext.OutputParameters.Should().ContainKey(DgtValidatePhoneNumberResponse.OutParameters.IsValid);
       executionContext.OutputParameters[DgtValidatePhoneNumberResponse.OutParameters.IsValid].As<bool>().Should()
         .BeFalse();
@@ -45,17 +45,16 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
     {
       // Arrange
       var serviceProvider = new PluginExecutionContextBuilder()
-        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber, "QWERTZ")
-        .BuildServiceProvider();
+        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber, "QWERTZ").BuildServiceProvider();
 
       var sut = new ValidatePhoneNumber();
-      
+
       // Act
       sut.Execute(serviceProvider);
 
       // Assert
       var executionContext = serviceProvider.GetExecutionContext();
-      
+
       executionContext.OutputParameters.Should().ContainKey(DgtValidatePhoneNumberResponse.OutParameters.IsValid);
       executionContext.OutputParameters[DgtValidatePhoneNumberResponse.OutParameters.IsValid].As<bool>().Should()
         .BeFalse();
@@ -73,9 +72,8 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
       // Arrange
       var serviceProvider = new PluginExecutionContextBuilder()
         .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber, "+491778261829")
-        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.Region, "US")
-        .BuildServiceProvider();
-      
+        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.Region, "US").BuildServiceProvider();
+
       var sut = new ValidatePhoneNumber();
 
       // Act
@@ -83,7 +81,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
 
       // Assert
       var executionContext = serviceProvider.GetExecutionContext();
-      
+
       executionContext.OutputParameters.Should().ContainKey(DgtValidatePhoneNumberResponse.OutParameters.IsValid);
       executionContext.OutputParameters[DgtValidatePhoneNumberResponse.OutParameters.IsValid].As<bool>().Should()
         .BeFalse();
@@ -103,13 +101,13 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
         .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber, "+49123").BuildServiceProvider();
 
       var sut = new ValidatePhoneNumber();
-      
+
       // Act
       sut.Execute(serviceProvider);
 
       // Assert
       var executionContext = serviceProvider.GetExecutionContext();
-      
+
       executionContext.OutputParameters.Should().ContainKey(DgtValidatePhoneNumberResponse.OutParameters.IsValid);
       executionContext.OutputParameters[DgtValidatePhoneNumberResponse.OutParameters.IsValid].As<bool>().Should()
         .BeFalse();
@@ -127,8 +125,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
       // Arrange
       var serviceProvider = new PluginExecutionContextBuilder()
         .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber, "01775628291")
-        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.Region, "DE")
-        .BuildServiceProvider();
+        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.Region, "DE").BuildServiceProvider();
 
       var sut = new ValidatePhoneNumber();
 
@@ -137,7 +134,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
 
       // Assert
       var executionContext = serviceProvider.GetExecutionContext();
-      
+
       executionContext.OutputParameters.Should().ContainKey(DgtValidatePhoneNumberResponse.OutParameters.IsValid);
       executionContext.OutputParameters[DgtValidatePhoneNumberResponse.OutParameters.IsValid].As<bool>().Should()
         .BeTrue();
@@ -161,7 +158,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
 
       // Assert
       var executionContext = serviceProvider.GetExecutionContext();
-      
+
       executionContext.OutputParameters.Should().ContainKey(DgtValidatePhoneNumberResponse.OutParameters.IsValid);
       executionContext.OutputParameters[DgtValidatePhoneNumberResponse.OutParameters.IsValid].As<bool>().Should()
         .BeTrue();
@@ -188,7 +185,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
 
       // Assert
       var executionContext = serviceProvider.GetExecutionContext();
-      
+
       executionContext.OutputParameters.Should().ContainKey(DgtValidatePhoneNumberResponse.OutParameters.IsValid);
       executionContext.OutputParameters[DgtValidatePhoneNumberResponse.OutParameters.IsValid].As<bool>().Should()
         .BeTrue();
@@ -224,8 +221,7 @@ namespace Digitall.Solutions.Validators.Test.PhoneNumber
       var serviceProvider = new PluginExecutionContextBuilder()
         .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.PhoneNumber, "01775628291")
         .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.Region, "DE")
-        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.Format, "E123")
-        .BuildServiceProvider();
+        .WithInputParameter(DgtValidatePhoneNumberRequest.InParameters.Format, "E123").BuildServiceProvider();
 
       var sut = new ValidatePhoneNumber();
 

@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="PrintFormat">
+  <description default="IBAN in print / human readable format (with spaces)">
+    <label description="IBAN in print / human readable format (with spaces)" languagecode="1033" />
+  </description>
+  <displayname default="Print Format">
+    <label description="Print Format" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>PrintFormat</name>
+  <type>10</type>
+</customapiresponseproperty>
