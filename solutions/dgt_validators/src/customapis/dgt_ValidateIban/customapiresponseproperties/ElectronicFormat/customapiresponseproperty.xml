@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="ElectronicFormat">
+  <description default="IBAN in electronic / machine readable format (without spaces)">
+    <label description="IBAN in electronic / machine readable format (without spaces)" languagecode="1033" />
+  </description>
+  <displayname default="Electronic Format">
+    <label description="Electronic Format" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>ElectronicFormat</name>
+  <type>10</type>
+</customapiresponseproperty>

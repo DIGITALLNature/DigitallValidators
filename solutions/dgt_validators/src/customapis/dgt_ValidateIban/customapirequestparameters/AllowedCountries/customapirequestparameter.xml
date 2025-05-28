@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="AllowedCountries">
+  <description default="only allow specified countries (ISO 3166-1 alpha-2)">
+    <label description="only allow specified countries (ISO 3166-1 alpha-2)" languagecode="1033" />
+  </description>
+  <displayname default="Allowed Countries">
+    <label description="Allowed Countries" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>1</isoptional>
+  <name>AllowedCountries</name>
+  <type>11</type>
+</customapirequestparameter>

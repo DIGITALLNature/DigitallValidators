@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="ErrorCode">
+  <description default="Error code specifying validation error (https://github.com/skwasjer/IbanNet/wiki/Validating-an-IBAN)">
+    <label description="Error code specifying validation error (https://github.com/skwasjer/IbanNet/wiki/Validating-an-IBAN)" languagecode="1033" />
+  </description>
+  <displayname default="Error Code">
+    <label description="Error Code" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>ErrorCode</name>
+  <type>10</type>
+</customapiresponseproperty>

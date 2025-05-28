@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="Message">
+  <description default="Human readable message specifying possible validation errors">
+    <label description="Human readable message specifying possible validation errors" languagecode="1033" />
+  </description>
+  <displayname default="Message">
+    <label description="Message" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>Message</name>
+  <type>10</type>
+</customapiresponseproperty>

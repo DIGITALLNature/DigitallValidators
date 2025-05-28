@@ -1,0 +1,35 @@
+name: Build Digitall Validators
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  release:
+    name: Semantic Release
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
+      - name: Restore Nuget packages
+        run: nuget restore solutions/dgt_validators/dgt_validators.cdsproj
+      - name: Setup msbuild
+        uses: microsoft/setup-msbuild@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install npm packages
+        run: pnpm install
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpx semantic-release
+
