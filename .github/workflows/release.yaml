@@ -25,7 +25,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 'lts/*'
-          cache: 'pnpm'
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
@@ -37,6 +36,7 @@ jobs:
         uses: pnpm/action-setup@v6
         with:
           version: 10
+          cache: true
       - name: Install npm packages
         run: pnpm install
       - name: Semantic Release
