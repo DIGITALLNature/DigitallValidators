@@ -1,13 +1,12 @@
 {
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@droidsolutions-oss/semantic-release-update-file": "^1.3.0",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@droidsolutions-oss/semantic-release-update-file": "^1.4.0",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.3",
     "husky": "^9.1.7",
-    "semantic-release": "^24.2.5"
+    "semantic-release": "^25.0.3"
   },
   "release": {
     "branches": [
@@ -45,7 +44,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "msbuild solutions/dgt_validators/dgt_validators.cdsproj /property:Configuration=Release"
+          "prepareCmd": "msbuild solutions/dgt_validators/dgt_validators.cdsproj / restore /property:Configuration=Release"
         }
       ],
       [

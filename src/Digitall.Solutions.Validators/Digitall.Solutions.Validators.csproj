@@ -26,12 +26,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="dgt.apower" Version="1.1.0-beta.3" />
+    <PackageReference Include="dgt.apower" Version="1.1.0-beta.4" />
     <PackageReference Include="dgt.registration" Version="1.0.1" />
-    <PackageReference Include="IbanNet" Version="5.18.0" />
-    <PackageReference Include="libphonenumber-csharp" Version="9.0.5" />
+    <PackageReference Include="IbanNet" Version="6.1.0" />
+    <PackageReference Include="libphonenumber-csharp" Version="9.0.29" />
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.*" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.PowerApps.MSBuild.Plugin" Version="1.42.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.Plugin" Version="2.7.4" PrivateAssets="All" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
   </ItemGroup>
 

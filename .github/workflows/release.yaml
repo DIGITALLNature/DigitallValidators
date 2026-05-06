@@ -2,30 +2,41 @@ name: Build Digitall Validators
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+
+permissions:
+  contents: read # for checkout
 
 jobs:
   release:
     name: Semantic Release
     runs-on: windows-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          token: ${{ secrets.CI_GITHUB_TOKEN }}
-      - name: Restore Nuget packages
-        run: nuget restore solutions/dgt_validators/dgt_validators.cdsproj
-      - name: Setup msbuild
-        uses: microsoft/setup-msbuild@v2
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 'latest'
+          dotnet-channel: 'LTS'
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v3
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 10
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'pnpm'
       - name: Install npm packages
         run: pnpm install
       - name: Semantic Release
